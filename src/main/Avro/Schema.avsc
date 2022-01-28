@@ -1,0 +1,10 @@
+{"namespace": "schemaregistry",
+ "type": "record",
+ "name": "GeneratedClass",
+ "fields": [
+     {"name": "name", "type": "string"},
+
+     {"name": "colour", "type": ["string", "null"]},
+     {"name": "model", "type": ["string", "null"]}
+ ]
+}
