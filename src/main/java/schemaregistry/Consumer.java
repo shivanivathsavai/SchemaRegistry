@@ -23,7 +23,7 @@ public class Consumer {
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class.getName());
         properties.setProperty("specific.avro.reader", "true");
 
-        properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "schema");
+        properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "groupID");
         properties.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
@@ -37,7 +37,6 @@ public class Consumer {
 
 
         while (true) {
-            System.out.println("Polling Kafka");
             ConsumerRecords<String, GeneratedClass> records = kafkaConsumer.poll(1000);
 
             for (ConsumerRecord<String, GeneratedClass> record : records) {
