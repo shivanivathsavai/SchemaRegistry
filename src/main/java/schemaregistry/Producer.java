@@ -17,7 +17,7 @@ public class Producer {
 
         /*Using KafkaAvroSerializer*/
 
-        properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
+        properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,  KafkaAvroSerializer.class.getName());
 
         /*Specifying the url of schemaregistry*/
 

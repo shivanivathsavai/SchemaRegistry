@@ -6,5 +6,7 @@
 
      {"name": "colour", "type": ["string", "null"]},
      {"name": "model", "type": ["string", "null"]}
+
+
  ]
 }
