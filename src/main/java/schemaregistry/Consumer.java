@@ -18,12 +18,12 @@ public class Consumer {
         Properties properties = new Properties();
         properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        properties.setProperty("auto.register.schemas","false");
 
         /*Using KafkaAvroDeSerializer*/
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class.getName());
-        properties.setProperty("specific.avro.reader", "true");
 
-        properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "groupID");
+        properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "groupID6");
         properties.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
@@ -33,15 +33,14 @@ public class Consumer {
 
         KafkaConsumer<String, GeneratedClass> kafkaConsumer = new KafkaConsumer<>(properties);
 
-        kafkaConsumer.subscribe(Collections.singleton("schema-topic2"));
+        kafkaConsumer.subscribe(Collections.singleton("schema-topic5"));
 
 
         while (true) {
             ConsumerRecords<String, GeneratedClass> records = kafkaConsumer.poll(1000);
 
             for (ConsumerRecord<String, GeneratedClass> record : records) {
-                GeneratedClass generatedlass = record.value();
-                System.out.println(generatedlass);
+                System.out.println(record.toString());
             }
 
             kafkaConsumer.commitSync();

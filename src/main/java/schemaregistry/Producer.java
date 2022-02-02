@@ -25,12 +25,12 @@ public class Producer {
 
         /*Creating object for generatedclass*/
 
-       GeneratedClass generatedClass = new GeneratedClass ("shivani","green","xyz");
+       GeneratedClass generatedClass = new GeneratedClass ("shriyan","blue","wxyz");
 
         KafkaProducer<String, GeneratedClass> producer = new KafkaProducer<String, GeneratedClass>(properties);
 
         ProducerRecord<String, GeneratedClass> producerRecord = new ProducerRecord<String,GeneratedClass>(
-                "schema-topic2", generatedClass
+                "schema-topic5", generatedClass
         );
 
         System.out.println(generatedClass);
